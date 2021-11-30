@@ -184,3 +184,21 @@
 2021-11-26T15:46:43.494Z [[33mwarn[39m] : in createUserInfo warn {"pid":12996,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[null]}
 2021-11-26T15:46:43.535Z [[33mwarn[39m] : in getUserByUserId warn {"pid":12996,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[null]}
 2021-11-26T15:46:43.551Z [[33mwarn[39m] : in logoutInfo warn {"pid":12996,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[null]}
+2021-11-30T06:21:08.670Z [[31merror[39m] : in createUserInfo error {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[{"key":"value"}]}
+2021-11-30T06:21:08.674Z [[31merror[39m] : in createUserInfo handle error {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"CreateUserInfo","extra":[{"key":"value"}]}
+2021-11-30T06:21:08.672Z [[33mwarn[39m] : in createUserInfo warn {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[null]}
+2021-11-30T06:21:08.675Z [[33mwarn[39m] : in createUserInfo handle warn {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"CreateUserInfo","extra":[null]}
+2021-11-30T06:21:40.036Z [[31merror[39m] : in logoutInfo error {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[{"key":"value"}]}
+2021-11-30T06:21:40.040Z [[31merror[39m] : in LogoutUserInfo handle error {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"LogoutUserInfo","extra":[{"key":"value"}]}
+2021-11-30T06:21:40.038Z [[33mwarn[39m] : in logoutInfo warn {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[null]}
+2021-11-30T06:21:40.041Z [[33mwarn[39m] : in LogoutUserInfo handle warn {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"LogoutUserInfo","extra":[null]}
+2021-11-30T06:22:22.212Z [[31merror[39m] : in logoutInfo error {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[{"key":"value"}]}
+2021-11-30T06:22:22.215Z [[31merror[39m] : in LogoutUserInfo handle error {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"LogoutUserInfo","extra":[{"key":"value"}]}
+2021-11-30T06:22:22.214Z [[33mwarn[39m] : in logoutInfo warn {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[null]}
+2021-11-30T06:22:22.217Z [[33mwarn[39m] : in LogoutUserInfo handle warn {"pid":11988,"hostname":"PUKAVDTMS10-3","context":"LogoutUserInfo","extra":[null]}
+2021-11-30T06:50:23.362Z [[31merror[39m] : in createUserInfo error {"pid":7544,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[{"key":"value"}]}
+2021-11-30T06:50:23.389Z [[31merror[39m] : in getUserByUserId error {"pid":7544,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[{"key":"value"}]}
+2021-11-30T06:50:23.399Z [[31merror[39m] : in logoutInfo error {"pid":7544,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[{"key":"value"}]}
+2021-11-30T06:50:23.367Z [[33mwarn[39m] : in createUserInfo warn {"pid":7544,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[null]}
+2021-11-30T06:50:23.391Z [[33mwarn[39m] : in getUserByUserId warn {"pid":7544,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[null]}
+2021-11-30T06:50:23.400Z [[33mwarn[39m] : in logoutInfo warn {"pid":7544,"hostname":"PUKAVDTMS10-3","context":"UserController","extra":[null]}

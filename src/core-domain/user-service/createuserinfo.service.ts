@@ -3,7 +3,7 @@ import { WinstonLoggerService } from "../../infrastructure/logger/winston-logger
 import { HttpClient } from "../../infrastructure/client/http.client";
 import { LoginStatus, UserModel } from "../models/user.model";
 import { IBaseService } from "./base.service";
-import { ErrorCode } from "../../infrastructure/constants/error-code";
+import { ResponseCode } from "../../infrastructure/constants/response-code";
 
 /* This Injectable service class contains createUserInfo service implementation for login */
 @Injectable()
@@ -39,7 +39,7 @@ export default class CreateUserInfo implements IBaseService<UserModel, LoginStat
             const users = await this.httpclient.post('save', userModel);
             console.log("New User logged in",users)
             const um = new UserModel(users.userId, users.browser, users.machineId, users.shopId, users.userLogin, users.loginDate)
-            const loginStatus = new LoginStatus("SUCCESS", um)
+            const loginStatus = new LoginStatus(ResponseCode.SUCCESS, um)
             return loginStatus;
         }
 
@@ -47,10 +47,10 @@ export default class CreateUserInfo implements IBaseService<UserModel, LoginStat
             for (let obj of responseObject) {
                 if (obj.userId === userModel.userId) {
                     if (obj.browser === userModel.browser && obj.machineId === userModel.machineId) {
-                        const loginStatus = new LoginStatus("SUCCESS", obj)
+                        const loginStatus = new LoginStatus(ResponseCode.SUCCESS, obj)
                         return loginStatus
                     }
-                    const msg ={ code: ErrorCode.NO_ACCESS, message: 'User authentication credentials does not match, LOGGED_OUT' };
+                    const msg ={ code: ResponseCode.NO_ACCESS, message: 'User authentication credentials does not match, LOGGED_OUT' };
                     throw new HttpException(msg, 401);
                     // return new LoginStatus("LOGGED_OUT", obj)
                 }
