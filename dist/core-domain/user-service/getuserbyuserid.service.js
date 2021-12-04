@@ -18,14 +18,12 @@ let GetUserByUserId = GetUserByUserId_1 = class GetUserByUserId {
         this.httpclient = httpclient;
         this.logger = logger;
         this.logger.setContext(GetUserByUserId_1.name);
-        console.log('UpdateLogoutInfo created');
+        console.log('GetUserByUserId created');
     }
     async handle(getUserModel) {
-        this.logger.info('in getUserByUserId handle  #GetUserModel  ${getUserModel}');
-        this.logger.error('in getUserByUserId handle error', { key: 'value' });
-        this.logger.debug('in getUserByUserId handle debug', { key: 'value' });
-        this.logger.warn('in getUserByUserId handle warn');
-        return await this.httpclient.get('all', getUserModel);
+        this.logger.info(`in getUserByUserId handle  #GetUserModel  ${getUserModel}`);
+        this.logger.info('in getUserByUserId handle info', { handle: getUserModel });
+        return await this.httpclient.post('all', getUserModel);
     }
 };
 GetUserByUserId = GetUserByUserId_1 = __decorate([

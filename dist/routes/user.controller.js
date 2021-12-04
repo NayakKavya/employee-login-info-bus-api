@@ -33,27 +33,21 @@ let UserController = UserController_1 = class UserController {
     }
     getUserByUserId(userId, getUserModel) {
         getUserModel.userId = userId;
-        this.logger.info('in getUserByUserId info #UserId #ShopId ${getUserModel}');
-        this.logger.error('in getUserByUserId error', { key: 'value' });
-        this.logger.debug('in getUserByUserId debug', { key: 'value' });
-        this.logger.warn('in getUserByUserId warn');
+        this.logger.info(`in getUserByUserId info #UserId #ShopId ${getUserModel}`);
+        this.logger.info('in getUserByUserId controller info', { getUserByUserId: getUserModel });
         return this.getUser.handle(getUserModel);
     }
     createUserInfo(userModel) {
-        this.logger.info('in createUserInfo info #UserModel  ${userModel}');
-        this.logger.error('in createUserInfo error', { key: 'value' });
-        this.logger.debug('in createUserInfo debug', { key: 'value' });
-        this.logger.warn('in createUserInfo warn');
+        this.logger.info(`in createUserInfo info #UserModel  ${userModel}`);
+        this.logger.info('in createUserInfo controller info', { createUserInfo: userModel });
         const loginStatus = this.userInfo.handle(userModel);
         return loginStatus;
     }
     logoutInfo(userLogoutModel) {
-        this.logger.info('in logoutInfo info #UserLogoutModel  ${userLogoutModel}');
-        this.logger.error('in logoutInfo error', { key: 'value' });
-        this.logger.debug('in logoutInfo debug', { key: 'value' });
-        this.logger.warn('in logoutInfo warn');
-        const user = this.logoutUserInfo.handle(userLogoutModel);
-        return user;
+        this.logger.info(`in logoutInfo info #UserLogoutModel  ${userLogoutModel}`);
+        this.logger.info('in logoutInfo controller info', { logoutInfo: userLogoutModel });
+        const logoutStatus = this.logoutUserInfo.handle(userLogoutModel);
+        return logoutStatus;
     }
 };
 __decorate([

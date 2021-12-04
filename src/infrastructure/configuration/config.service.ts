@@ -45,7 +45,7 @@ export class ConfigService {
     }
 
     public getLogLevel(): string {
-        const level = this.getValue('ORDER_LOG_LEVEL', false)
+        const level = this.getValue('EMPLOYEE_LOGIN_LOG_LEVEL', false)
         return level
     }
 

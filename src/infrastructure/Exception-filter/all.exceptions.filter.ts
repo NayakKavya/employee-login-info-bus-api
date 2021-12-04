@@ -61,7 +61,7 @@ import {
         timestamp: new Date().toISOString(),
         path: request.url,
         message: mesage,
-        errorCode: errCode
+        responseCode: errCode
       });
     }
   }

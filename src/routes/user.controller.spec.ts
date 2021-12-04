@@ -12,36 +12,36 @@ jest.mock('../core-domain/user-service/createuserinfo.service');
 jest.mock('../core-domain/user-service/getuserbyuserid.service');
 jest.mock('../core-domain/user-service/logoutuserinfo.service')
 
-describe('UserController',()=>{
+describe('UserController', () => {
 
-    let userController : UserController;
+    let userController: UserController;
     let createUserInfo: CreateUserInfo;
     let getUserByUserId: GetUserByUserId;
     let logoutUserInfo: LogoutUserInfo;
-    beforeEach(async()=>{
+    beforeEach(async () => {
         const module = await Test.createTestingModule({
-            imports: [HttpModule, 
+            imports: [HttpModule,
                 WinstonLoggerModule.forRoot({ level: ConfigService.create().getLogLevel() }),],
             controllers: [UserController],
-            providers:[ CreateUserInfo, GetUserByUserId, LogoutUserInfo, HttpClient]
+            providers: [CreateUserInfo, GetUserByUserId, LogoutUserInfo, HttpClient]
         }).compile();
 
-        userController= module.get<UserController>(UserController);
+        userController = module.get<UserController>(UserController);
         createUserInfo = module.get<CreateUserInfo>(CreateUserInfo);
         getUserByUserId = module.get<GetUserByUserId>(GetUserByUserId);
         logoutUserInfo = module.get<LogoutUserInfo>(LogoutUserInfo);
     })
 
-    it('CreateUserInfo Service to have been called',()=>{
+    it('CreateUserInfo Service to have been called', () => {
 
-        const loginUserService={
-        userId: "User17",
-        browser: "chrome",
-        machineId: "10.102.20.45",
-        shopId: 123,
-        userLogin: "login",
-        loginDate: new Date(),
-    };
+        const loginUserService = {
+            userId: "User17",
+            browser: "chrome",
+            machineId: "10.102.20.45",
+            shopId: 123,
+            userLogin: "login",
+            loginDate: new Date(),
+        };
 
         userController.createUserInfo(loginUserService);
         expect(true).toBe(true)
@@ -49,8 +49,8 @@ describe('UserController',()=>{
         expect(createUserInfo.handle).toHaveBeenCalled()
     });
 
-    it('GetUserInfoService to have been called', ()=>{
-        const getUserService={
+    it('GetUserInfoService to have been called', () => {
+        const getUserService = {
             userId: "User17",
             shopId: 123
         };
@@ -58,18 +58,18 @@ describe('UserController',()=>{
         expect(getUserByUserId.handle).toHaveBeenCalled();
     });
 
-    it('LogoutUserInfo Service to have been called',()=>{
+    it('LogoutUserInfo Service to have been called', () => {
 
-        const logoutUserService={
-        userId: "User17",
-        browser: "chrome",
-        machineId: "10.102.20.45",
-        shopId: 123,
-        loginDate: new Date(),
-        logoutDate: new Date(),
-    };
+        const logoutUserService = {
+            userId: "User17",
+            browser: "chrome",
+            machineId: "10.102.20.45",
+            shopId: 123,
+            loginDate: new Date(),
+            logoutDate: new Date(),
+        };
 
-        userController.logoutInfo(null);
+        userController.logoutInfo(logoutUserService);
         expect(logoutUserInfo.handle).toHaveBeenCalled()
     });
 });

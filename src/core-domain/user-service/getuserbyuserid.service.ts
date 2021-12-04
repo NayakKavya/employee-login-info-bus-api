@@ -12,18 +12,14 @@ export default class GetUserByUserId implements IBaseService<GetUserModel, UserM
     constructor(private httpclient: HttpClient,
         private logger: WinstonLoggerService,) {
         this.logger.setContext(GetUserByUserId.name);
-        console.log('UpdateLogoutInfo created')
+        console.log('GetUserByUserId created')
     }
 
-    /**
-    * This method accepts getUserModel and pass it to system api through httpclient post
-    * and receives and returns user
-    */
+    /** This method accepts getUserModel and pass it to system api through httpclient post
+    * and receives and returns user*/
     async handle(getUserModel: GetUserModel): Promise<UserModel[]> {
-        this.logger.info('in getUserByUserId handle  #GetUserModel  ${getUserModel}');
-        this.logger.error('in getUserByUserId handle error', { key: 'value' });
-        this.logger.debug('in getUserByUserId handle debug', { key: 'value' });
-        this.logger.warn('in getUserByUserId handle warn');
-        return await this.httpclient.get('all', getUserModel);
+        this.logger.info(`in getUserByUserId handle  #GetUserModel  ${getUserModel}`);
+        this.logger.info('in getUserByUserId handle info', { handle: getUserModel });
+        return await this.httpclient.post('all', getUserModel);
     }
 }

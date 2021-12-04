@@ -1,5 +1,5 @@
 import { GetUserModel } from "../core-domain/models/getuser.model";
-import { UserLogoutModel } from "../core-domain/models/user.logout.model";
+import { LogoutStatus, UserLogoutModel } from "../core-domain/models/user.logout.model";
 import { LoginStatus, UserModel } from "../core-domain/models/user.model";
 import GetUserByUserId from "../core-domain/user-service/getuserbyuserid.service";
 import LogoutUserInfo from "../core-domain/user-service/logoutuserinfo.service";
@@ -13,5 +13,5 @@ export declare class UserController {
     constructor(getUser: GetUserByUserId, userInfo: CreateUserInfo, logoutUserInfo: LogoutUserInfo, logger: WinstonLoggerService);
     getUserByUserId(userId: string, getUserModel: GetUserModel): Promise<UserModel[]>;
     createUserInfo(userModel: UserModel): Promise<LoginStatus>;
-    logoutInfo(userLogoutModel: UserLogoutModel): Promise<UserLogoutModel>;
+    logoutInfo(userLogoutModel: UserLogoutModel): Promise<LogoutStatus>;
 }

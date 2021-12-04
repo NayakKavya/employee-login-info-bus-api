@@ -4,6 +4,7 @@ export class UserLogoutModel {
 }
 
 
-// export class LoginStatus {
-//     constructor(public status: string, public response: UserModel) { }
-// }
+export class LogoutStatus {
+    constructor(public statusCode: number, public timestamp: Date, public path: string,
+        public message: string, public responseCode: string) { }
+}

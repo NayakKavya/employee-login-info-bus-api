@@ -1,12 +1,12 @@
 {
-  "name": "stock-user-bus-api",
+  "name": "employee-login-info-bus-api",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "start:stock-user": "nest start --watch --config stock-ordering-bootstrapper.json",
+    "start:employee-login-info": "nest start --watch --config employee-login-info-bootstrapper.json",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",

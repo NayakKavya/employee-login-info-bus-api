@@ -36,7 +36,7 @@ class ConfigService {
         return this.getValue(key, true);
     }
     getLogLevel() {
-        const level = this.getValue('ORDER_LOG_LEVEL', false);
+        const level = this.getValue('EMPLOYEE_LOGIN_LOG_LEVEL', false);
         return level;
     }
 }

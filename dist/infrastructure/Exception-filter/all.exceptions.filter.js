@@ -39,14 +39,14 @@ let AllExceptionsFilter = class AllExceptionsFilter {
             console.log('+++++++++++++++++++____Error_', (_b = excep === null || excep === void 0 ? void 0 : excep.response) === null || _b === void 0 ? void 0 : _b.data);
             status = (_d = (_c = excep === null || excep === void 0 ? void 0 : excep.response) === null || _c === void 0 ? void 0 : _c.data) === null || _d === void 0 ? void 0 : _d.statusCode;
             mesage = ((_f = (_e = excep === null || excep === void 0 ? void 0 : excep.response) === null || _e === void 0 ? void 0 : _e.data) === null || _f === void 0 ? void 0 : _f.message) === undefined ? exception === null || exception === void 0 ? void 0 : exception.message : (_h = (_g = excep === null || excep === void 0 ? void 0 : excep.response) === null || _g === void 0 ? void 0 : _g.data) === null || _h === void 0 ? void 0 : _h.message;
-            errCode = +((_k = (_j = excep === null || excep === void 0 ? void 0 : excep.response) === null || _j === void 0 ? void 0 : _j.data) === null || _k === void 0 ? void 0 : _k.errorCode);
+            errCode = (_k = (_j = excep === null || excep === void 0 ? void 0 : excep.response) === null || _j === void 0 ? void 0 : _j.data) === null || _k === void 0 ? void 0 : _k.errorCode;
         }
         if (exception instanceof common_1.HttpException) {
             console.log('+++++++++++++++++++_____', exception.getResponse());
             let responseMsg = exception.getResponse();
             status = exception.getStatus();
             mesage = exception === null || exception === void 0 ? void 0 : exception.message;
-            errCode = +(responseMsg === null || responseMsg === void 0 ? void 0 : responseMsg.code);
+            errCode = responseMsg === null || responseMsg === void 0 ? void 0 : responseMsg.code;
         }
         if (exception instanceof microservices_1.RpcException) {
             mesage = exception.message;
@@ -56,7 +56,7 @@ let AllExceptionsFilter = class AllExceptionsFilter {
             timestamp: new Date().toISOString(),
             path: request.url,
             message: mesage,
-            errorCode: errCode
+            responseCode: errCode
         });
     }
 };

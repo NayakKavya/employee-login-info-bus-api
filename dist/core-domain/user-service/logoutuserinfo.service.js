@@ -13,6 +13,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const winston_logger_service_1 = require("../../infrastructure/logger/winston-logger.service");
 const http_client_1 = require("../../infrastructure/client/http.client");
+const user_logout_model_1 = require("../models/user.logout.model");
+const response_code_1 = require("../../infrastructure/constants/response-code");
 let LogoutUserInfo = LogoutUserInfo_1 = class LogoutUserInfo {
     constructor(httpclient, logger) {
         this.httpclient = httpclient;
@@ -21,31 +23,23 @@ let LogoutUserInfo = LogoutUserInfo_1 = class LogoutUserInfo {
         console.log('LogoutUserInfo created');
     }
     async handle(userLogoutModel) {
-        this.logger.info('in LogoutUserInfo handle  #UserLogoutModel  ${userLogoutModel}');
-        this.logger.error('in LogoutUserInfo handle error', { key: 'value' });
-        this.logger.debug('in LogoutUserInfo handle debug', { key: 'value' });
-        this.logger.warn('in LogoutUserInfo handle warn');
+        this.logger.info(`in LogoutUserInfo handle  #UserLogoutModel  ${userLogoutModel}`);
+        this.logger.info('in LogoutUserInfo handle info', { handle: userLogoutModel });
         let date = new Date();
-        console.log('Date Login', date);
         userLogoutModel.logoutDate = date;
-        console.log('*************************', userLogoutModel);
         const found = await this.httpclient.post('getUserInfo', userLogoutModel);
-        console.log('Found', found);
+        this.logger.info('in createUserInfo handle info found', { handle: found });
         for (let obj of await found) {
-            console.log('Inside for for loop');
-            console.log('UserModel**(((', userLogoutModel.userId, userLogoutModel.browser, userLogoutModel.machineId, userLogoutModel.shopId);
-            console.log('%%%%%%%%%BJ', obj);
-            console.log('%-----', obj.userId, obj.browser, obj.machineId, obj.shopId);
+            this.logger.info('in createUserInfo handle info obj', { handle: obj });
             if (obj.userId === userLogoutModel.userId && obj.browser === userLogoutModel.browser &&
                 obj.machineId === userLogoutModel.machineId) {
-                console.log('inside if block logout');
                 userLogoutModel.loginDate = obj.loginDate;
-                console.log('User&&&');
                 const res = await this.httpclient.post('logout', userLogoutModel);
-                console.log('Res++++', res);
+                this.logger.info('in createUserInfo handle info res', { handle: res });
                 const delres = await this.httpclient.delete('delUserInfo/' + userLogoutModel.userId + "/" + userLogoutModel.shopId);
-                console.log('delRes++++', delres);
-                return res;
+                this.logger.info('in createUserInfo handle info delres', { handle: delres });
+                const logoutStatus = new user_logout_model_1.LogoutStatus(200, date, '/logout', "User logged out successfully.", response_code_1.ResponseCode.LOGGED_OUT);
+                return logoutStatus;
             }
         }
     }
